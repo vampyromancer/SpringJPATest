@@ -1,6 +1,8 @@
 package kz.zaletov.springMVC.util;
 
+import kz.zaletov.springMVC.DAO.BooksDAO;
 import kz.zaletov.springMVC.DAO.PersonDAO;
+import kz.zaletov.springMVC.models.Book;
 import kz.zaletov.springMVC.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -8,13 +10,12 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 @Component
-public class PersonValidator implements Validator {
-    private final PersonDAO personDao;
+public class BookValidator implements Validator {
+    private final BooksDAO booksDAO;
     @Autowired
-    public PersonValidator(PersonDAO personDao) {
-        this.personDao = personDao;
+    public BookValidator(BooksDAO booksDAO) {
+        this.booksDAO = booksDAO;
     }
-
     @Override
     public boolean supports(Class<?> clazz) {
         return Person.class.equals(clazz);
@@ -22,9 +23,9 @@ public class PersonValidator implements Validator {
 
     @Override
     public void validate(Object o, Errors errors) {
-        Person person = (Person) o;
-        if(personDao.showName(person.getName()).isPresent()&&personDao.showYear(person.getYear()).isPresent()){
-            errors.rejectValue("name","", "The person should be unique");
+        Book book = (Book) o;
+        if(booksDAO.showName(book.getName()).isPresent()&&booksDAO.showAuthor(book.getAuthor()).isPresent()){
+            errors.rejectValue("name","", "The book should be unique");
         }
     }
 }
