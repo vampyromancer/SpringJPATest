@@ -1,21 +1,110 @@
-/.gitignore.txt
-/target/untitled4/WEB-INF/lib/antlr4-runtime-4.10.1.jar
-/target/untitled4/WEB-INF/lib/byte-buddy-1.12.18.jar
-/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
-/src/main/resources/hibernate.properties
-/target/classes/hibernate.properties
-/target/untitled4/WEB-INF/classes/hibernate.properties
-/target/untitled4/WEB-INF/lib/hibernate-commons-annotations-6.0.6.Final.jar
-/target/untitled4/WEB-INF/lib/hibernate-core-6.1.7.Final.jar
-/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
-/target/untitled4/WEB-INF/lib/istack-commons-runtime-4.0.1.jar
-/target/untitled4/WEB-INF/lib/jakarta.activation-2.0.1.jar
-/target/untitled4/WEB-INF/lib/jakarta.inject-api-2.0.0.jar
-/target/untitled4/WEB-INF/lib/jakarta.persistence-api-3.0.0.jar
-/target/untitled4/WEB-INF/lib/jakarta.transaction-api-2.0.0.jar
-/target/untitled4/WEB-INF/lib/jakarta.xml.bind-api-3.0.1.jar
-/target/untitled4/WEB-INF/lib/jandex-2.4.2.Final.jar
-/target/untitled4/WEB-INF/lib/jaxb-core-3.0.2.jar
-/target/untitled4/WEB-INF/lib/jaxb-runtime-3.0.2.jar
-/target/untitled4/WEB-INF/lib/spring-orm-6.0.6.jar
-/target/untitled4/WEB-INF/lib/txw2-3.0.2.jar
+# Created by .ignore support plugin (hsz.mobi)
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen### macOS template
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+### Linux template
+*~
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+# .nfs files are created when an open file is removed but is still being accessed
+.nfs*
+### Java template
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+### Windows template
+# Windows thumbnail cache files
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+
+# Dump file
+*.stackdump
+
+# Folder config file
+[Dd]esktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+### Maven template
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+
+# Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
+!/.mvn/wrapper/maven-wrapper.jar
