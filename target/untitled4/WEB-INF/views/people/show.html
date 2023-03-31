@@ -8,11 +8,6 @@
 <p th:text="${person.getName()}">VALUE</p>
 <p th:text="${person.getYear()}">VALUE</p>
 <hr><br>
-<a th:if="${books==null}" th:text="'Книги в аренде отсутствуют'"></a>
-<p th:if="${books!=null}" th:text="'Полученные книги:'"></p>
-<p th:if="${books!=null}" th:each="x, state: ${books}">
-    <a th:text="${x.getName()+ ', ' + x.getAuthor()}"></a>
-<hr><br>
 <form th:method="GET" th:action="@{/people/{id}/edit(id=${person.getId()})}">
     <input type ="submit" value="Изменить данные">
 </form>

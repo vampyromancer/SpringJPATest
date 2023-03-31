@@ -1,7 +1,6 @@
 package kz.zaletov.springMVC.controllers;
 
 import jakarta.validation.Valid;
-import kz.zaletov.springMVC.DAO.BooksDAO;
 import kz.zaletov.springMVC.DAO.PersonDAO;
 import kz.zaletov.springMVC.models.Person;
 import kz.zaletov.springMVC.util.PersonValidator;
@@ -16,12 +15,10 @@ import org.springframework.web.bind.annotation.*;
 public class PeopleController {
     private final PersonValidator personValidator;
     private final PersonDAO personDAO;
-    private final BooksDAO booksDAO;
     @Autowired
-    public PeopleController(PersonValidator personValidator, PersonDAO personDAO, BooksDAO booksDAO){
+    public PeopleController(PersonValidator personValidator, PersonDAO personDAO){
         this.personValidator = personValidator;
         this.personDAO=personDAO;
-        this.booksDAO = booksDAO;
     }
     @GetMapping("")
     public String index(Model model){
@@ -31,7 +28,6 @@ public class PeopleController {
     @GetMapping("/{id}")
     public String show(@PathVariable("id") int id, Model model){
         model.addAttribute("person", personDAO.show(id));
-        model.addAttribute("books", booksDAO.showPersonBooks(id));
         return "people/show";
     }
     @GetMapping("/new")

@@ -1,14 +1,24 @@
 package kz.zaletov.springMVC.models;
 
+import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
+@Entity
+@Table(name = "Person")
 public class Person {
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     @NotEmpty(message = "Name shouldn not be empty")
     @Size(min=2, max=100, message = "Name should be between 2 and 30 chars")
+    @Column(name = "name")
     private String name;
+
     @Min(value = 1900, message = "Should be real year 0")
     @Max(value = 2020, message = "Should be less than 2020")
+    @Column(name = "year")
     private int year;
     public Person(){}
 
@@ -40,5 +50,10 @@ public class Person {
 
     public void setYear(int year) {
         this.year = year;
+    }
+
+    public void updatePerson(Person person){
+        this.setName(person.getName());
+        this.setYear(person.getYear());
     }
 }
