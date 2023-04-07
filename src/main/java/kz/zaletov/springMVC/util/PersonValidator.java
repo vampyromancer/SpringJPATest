@@ -22,9 +22,6 @@ public class PersonValidator implements Validator {
 
     @Override
     public void validate(Object o, Errors errors) {
-        Person person = (Person) o;
-        if(personDao.showName(person.getName()).isPresent()&&personDao.showYear(person.getYear()).isPresent()){
-            errors.rejectValue("name","", "The person should be unique");
-        }
+
     }
 }

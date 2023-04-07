@@ -13,6 +13,10 @@
     <label for="year">Год рождения</label>
     <input type="text" th:field="*{year}" id="year"/>
     <p style="color:red" th:if="${#fields.hasErrors('year')}" th:errors="*{year}">year error</p>
+    <br><br>
+    <label for="date_of_birth">Год рождения (дд/мм/гггг)</label>
+    <input type="text" th:field="*{dateOfBirth}" id="date_of_birth"/>
+    <p style="color:red" th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}">date error</p>
   <br><br>
   <input type="submit" value="Создать!">
 </form>

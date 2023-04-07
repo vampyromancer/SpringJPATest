@@ -2,6 +2,10 @@ package kz.zaletov.springMVC.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "Person")
@@ -16,11 +20,26 @@ public class Person {
     @Column(name = "name")
     private String name;
 
-    @Min(value = 1900, message = "Should be real year 0")
+    @Min(value = 1900, message = "Should be real year")
     @Max(value = 2020, message = "Should be less than 2020")
     @Column(name = "year")
     private int year;
-    public Person(){}
+
+    @Column(name = "date_of_birth")
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd/MM/yyyy") //дд/мм/гггг
+    //тут если неправильно вписать данные в форму, то будет выдаваться чисто техническая ошибка от Spring
+    //если же хотим все по-красоте, то нужно создать спринг валидатор, где явно валидироавть дату с ошибкой
+    private Date dateOfBirth;
+    @Column(name = "created_at")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdAt;
+
+    @OneToMany(mappedBy = "owner")
+    private List<Item> items;
+
+    public Person() {
+    }
 
     public Person(int id, String name, int year) {
         this.id = id;
@@ -52,8 +71,36 @@ public class Person {
         this.year = year;
     }
 
-    public void updatePerson(Person person){
-        this.setName(person.getName());
-        this.setYear(person.getYear());
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Item> items) {
+        this.items = items;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", year=" + year +
+                '}';
     }
 }
